@@ -1,11 +1,10 @@
 <div class="card">
     <div class="card-header">
-        Product List
+        {{pageTitle}}
     </div>
 
     <div class="card-body">
         <div class='row'>
-            <h1>Stao si na Binding with interpolation</h1>
             <div class='col-md-2'>Filter by:</div>
             <div class='col-md-4'>
                 <input type='text' />
@@ -19,7 +18,7 @@
           </div>
 
           <div class="table-responsive">
-              <table class="table">
+              <table class="table" *ngIf='products && products.length'>
                   <thead>
                       <tr>
                           <th>
@@ -33,7 +32,21 @@
                       </tr>
                   </thead>
 
-                  <tbody></tbody>
+                  <tbody>
+                      <tr *ngFor='let product of products'>
+                          <td>
+                              <img [src]='product.imageUrl' 
+                                   [title]='product.description'
+                                   [style.width.px]='imageWidth'
+                                   [style.margin.px]='imageMargin' >
+                          </td>
+                          <td>{{product.productName}}</td>
+                          <td>{{product.productCode}}</td>
+                          <td>{{product.relaseDate}}</td>
+                          <td>{{product.price}}</td>
+                          <td>{{product.starRating}}</td>
+                      </tr>
+                  </tbody>
               </table>
           </div>
     </div>
