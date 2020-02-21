@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'pm-star',
@@ -6,11 +6,17 @@ import { Component } from '@angular/core';
     styleUrls: ['./star.component.css']
 })
 
-export class starComponent {
-    rating: number = 4;
+export class StarComponent {
+    @Input() rating: number;
     starWidth: number;
+    @Output() ratingClicked: EventEmitter<string> = 
+        new EventEmitter<string>();
 
     ngOnChanges(): void {
         this.starWidth = this.rating * 75 / 5;
+    }
+
+    onClick(): void {
+        this.ratingClicked.emit(`The rating ${this.rating} was clicked!`)
     }
 } 
