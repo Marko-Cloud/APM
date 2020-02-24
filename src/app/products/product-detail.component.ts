@@ -8,6 +8,9 @@ import { IProduct } from './product';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
+
+  // Dovuci proizvode prek servisa (ProductService) i upucaj u product detail page
+
   pageTitle: string = 'Product Detail';
   product: IProduct;
 
@@ -17,7 +20,7 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit() {
     let id = +this.route.snapshot.paramMap.get('id');
 
-    this.pageTitle += `${id}`;
+    this.pageTitle += ` ${id} `;
     this.product = {
       "productId": id,
       "productName": "Leaf Rake",

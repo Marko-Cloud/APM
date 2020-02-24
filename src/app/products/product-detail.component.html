@@ -1,6 +1,51 @@
 <div class="card" *ngIf='product'>
     <div class="card-header">
-        {{pageTitle + ': ' + product.productName}}
+        {{pageTitle + ':' + ' ' + product.productName}}
+    </div>
+
+    <div class="card-body" [ngStyle]="{'padding-top': '0px'}">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td [ngStyle]="{border: 0}">
+                        <tr>
+                            <td [ngStyle]="{border: 0}">Name:</td>
+                            <td [ngStyle]="{border: 0}">{{product.productName}}</td>
+                        </tr>
+                        <tr>
+                            <td>Code:</td>
+                            <td>{{product.productCode}}</td>
+                        </tr>
+                        <tr>
+                            <td>Description:</td>
+                            <td>{{product.description}}</td>
+                        </tr>
+                        <tr>
+                            <td>Availability:</td>
+                            <td>{{product.releaseDate}}</td>
+                        </tr>
+                        <tr>
+                            <td>Price:</td>
+                            <td>{{product.price}}</td>
+                        </tr>
+                        <tr>
+                            <td>5 Star Rating</td>
+                            <td>{{product.starRating}}</td>
+                        </tr>
+                    </td>
+
+                    <td [ngStyle]="{border: 0}">
+                        <tr>
+                            <td colspan="2" [ngStyle]="{border: 0}">
+                                <img [src]='product.imageUrl' 
+                                    [title]='product.description'
+                                    [style.width.px]='200' >
+                            </td>
+                        </tr>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <div class="card-footer">
